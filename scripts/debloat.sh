@@ -66,15 +66,16 @@ declare -A apps=(
 for package in "${!apps[@]}"; do
     while true; do
         echo -e "• Do you want to debloat ${YELLOW}${apps[$package]}${RESET} (${CYAN}$package${RESET})? (y/n): "
-        read answer
-        if [[ $answer == "y" || $answer == "n" ]]; then
+        read -n 1 answer
+        echo
+        if [[ $answer == "y" || $answer == "Y" || $answer == "n" || $answer == "N" ]]; then
             break
         else
             echo -e "${RED}Invalid input. Please enter 'y' for yes or 'n' for no.${RESET}"
         fi
     done
 
-    if [[ $answer == "y" ]]; then
+    if [[ $answer == "y" || $answer == "Y" ]]; then
         echo -e "Uninstalling ${YELLOW}${apps[$package]}${RESET}..."
         output=$(su -c "pm uninstall -k --user 0 $package" 2>&1)
         if [[ $output == *"Success"* ]]; then
