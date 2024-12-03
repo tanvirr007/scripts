@@ -11,7 +11,7 @@ FILE="$1"
 
 # Query GoFile API to find the best server for upload
 # Use jq to parse JSON response and extract the server name
-SERVER=$(curl -s https://api.gofile.io/getServer | jq  -r '.data|.server')
+SERVER=$(curl -s https://api.gofile.io/servers | jq -r '.data.servers[0].name')
 
 # Upload the file to GoFile
 # -# shows a progress bar
