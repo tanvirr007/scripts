@@ -22,6 +22,7 @@ pkg install byobu -y
 pkg install jq -y
 pkg install wget -y
 pkg install bc -y
+pkg install proot -y
 
 # My favorite wifi tool
 git clone https://github.com/tanvir-projects-archive/OneShot.git
@@ -34,6 +35,9 @@ bash setup_github.sh
 sh -c "$(curl -fsSL https://github.com/tanvir-projects-archive/termux-ohmyzsh/raw/master/install.sh)"
 ~/.termux/colors.sh
 ~/.termux/fonts.sh
+
+# Ubuntu in termux
+git clone https://github.com/tanvir-projects-archive/ubuntu-in-termux ubuntu
 
 # Pixeldrain
 wget https://raw.githubusercontent.com/tanvirr007/scripts/main/scripts/pixeldrain.sh -O "/data/data/com.termux/files/usr/bin/pixeldrain" && chmod +x "/data/data/com.termux/files/usr/bin/pixeldrain"
